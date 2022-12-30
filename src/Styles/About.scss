@@ -1,0 +1,193 @@
+.aboutPage {
+  // 公司簡介
+  .introductionWrap {
+    margin-bottom: 3rem;
+    // 文字敘述
+    .introduction {
+      color: var(--textBlack);
+      font-size: 1.2rem;
+      line-height: 4rem;
+      letter-spacing: 1px;
+      font-weight: 400;
+    }
+    // 圖片
+    .introductionImg {
+      width: 300px;
+      height: 250px;
+      margin: auto;
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+  }
+  // 影片區
+  .videoWrap {
+    margin: auto;
+    max-width: 830px;
+    width: 80%;
+    height: 440px;
+    margin-bottom: 3rem;
+    iframe {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  //聯絡我們
+  .contactWrap {
+    form {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      .infoWrap {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 1.5rem;
+        flex-wrap: wrap;
+        input {
+          width: 260px;
+          height: 60px;
+          padding-left: 1rem;
+          border: 1px solid rgba(84, 73, 73, 0.5);
+          border-radius: 5px;
+          &:focus {
+            outline: none;
+          }
+          ::placeholder {
+            color: red;
+            font-size: 1.5rem;
+          }
+        }
+      }
+      textarea {
+        width: 100%;
+        height: 240px;
+        margin-bottom: 1.5rem;
+        padding: 1rem;
+        border: 1px solid rgba(84, 73, 73, 0.5);
+        border-radius: 5px;
+
+        &:focus {
+          outline: none;
+        }
+      }
+      input[type="submit"] {
+        cursor: pointer;
+        height: 50px;
+        width: 180px;
+        border-radius: 5px;
+        font-size: 1.2rem;
+        border: none;
+        background-color: var(--mainYellow);
+        font-weight: 700;
+        color: var(--textBlack);
+        transition: 0.2s;
+        letter-spacing: 1px;
+        &:hover {
+          background-color: rgba(248, 180, 45, 0.8);
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1120px) {
+  .aboutPage {
+    .contactWrap {
+      form {
+        .infoWrap {
+          margin-bottom: 1rem;
+          input {
+            width: 23%;
+            height: 50px;
+          }
+        }
+      }
+    }
+  }
+}
+@media (max-width: 768px) {
+  .aboutPage {
+    .contactWrap {
+      form {
+        .infoWrap {
+          margin-bottom: 0.5rem;
+          input {
+            width: 47%;
+            height: 50px;
+            margin-bottom: 0.5rem;
+          }
+        }
+        textarea {
+          height: 150px;
+          margin-bottom: 1rem;
+        }
+        input[type="submit"] {
+          height: 45px;
+          width: 150px;
+          border-radius: 5px;
+          font-size: 1rem;
+        }
+      }
+    }
+    .videoWrap {
+      width: 80%;
+      height: 300px;
+      margin-bottom: 2rem;
+    }
+  }
+}
+@media (max-width: 576px) {
+  .aboutPage {
+    .introductionWrap {
+      margin-bottom: 2rem;
+      // 文字敘述
+      .introduction {
+        font-size: 1.1rem;
+        line-height: 2rem;
+        letter-spacing: 1.2px;
+      }
+      // 圖片
+      .introductionImg {
+        width: 100%;
+        height: 220px;
+      }
+    }
+
+    .videoWrap {
+      width: 100%;
+      height: 200px;
+    }
+    .contactWrap {
+      form {
+        .infoWrap {
+          margin-bottom: 0.5rem;
+          input {
+            width: 100%;
+            height: 45px;
+            margin: auto;
+            margin-bottom: 0.5rem;
+            border-radius: 3px;
+          }
+        }
+        textarea {
+          width: 100%;
+          height: 120px;
+          margin-bottom: 1rem;
+        }
+        input[type="submit"] {
+          height: 45px;
+          width: 150px;
+          border-radius: 5px;
+          font-size: 1rem;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,78 @@
+.Page {
+  min-height: 100vh;
+  // background-color: antiquewhite;
+  padding-top: 120px;
+
+  // 輪播牆
+  .bannerWrap {
+    margin-bottom: 3rem;
+    .swiper-wrapper {
+      margin-left: -16%;
+      .swiper-slide {
+        width: 600px;
+        height: 350px;
+        margin-right: 2rem;
+        border-radius: 10px;
+        overflow: hidden;
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          display: block;
+        }
+      }
+    }
+    // 輪播牆點點
+    .swiper-pagination {
+      height: 2rem;
+      position: static;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      span {
+        width: 16px;
+        height: 16px;
+        margin: 0 0.5rem;
+        background-color: white;
+        border: 2px solid var(--mainYellow);
+      }
+      .swiper-pagination-bullet-active {
+        background-color: var(--mainYellow);
+      }
+    }
+  }
+
+  .title {
+    border-bottom: 3px solid var(--mainYellow);
+    margin-bottom: 2rem;
+  }
+  .newsCard {
+    position: relative;
+    height: 290px;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 2rem;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .cardTitle {
+      top: 1rem;
+      position: absolute;
+      color: white;
+      font-size: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      font-weight: 700;
+    }
+    .viewmoreBtn {
+      position: absolute;
+      right: 2rem;
+      bottom: 1.5rem;
+      color: white;
+      border: 1px solid white;
+    }
+  }
+}
+// .swiper-wrapper
