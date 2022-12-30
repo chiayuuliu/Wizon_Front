@@ -43,6 +43,7 @@
   }
 
   .title {
+    padding-bottom: 0.5rem;
     border-bottom: 3px solid var(--mainYellow);
     margin-bottom: 2rem;
   }
@@ -76,3 +77,31 @@
   }
 }
 // .swiper-wrapper
+@media (max-width: 768px) {
+  .Page {
+    .bannerWrap {
+      padding: 0 1rem;
+      margin-bottom: 2rem;
+      .swiper-wrapper {
+        margin-left: 0%;
+        .swiper-slide {
+          width: 350px;
+          height: 250px;
+          // margin-right: 2rem;
+          border-radius: 10px;
+          overflow: hidden;
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+          }
+        }
+      }
+    }
+
+    .newsCard {
+      height: 200px;
+    }
+  }
+}

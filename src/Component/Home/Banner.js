@@ -11,12 +11,30 @@ const Banner = ({ bannerList }) => {
   return (
     <div className="bannerWrap">
       <Swiper
-        slidesPerView={2.5}
+        slidesPerView={1.8}
         pagination={{
           clickable: true,
         }}
         modules={[Pagination]}
         className="mySwiper"
+        breakpoints={{
+          0: {
+            slidesPerView: 1,
+            spaceBetween: 10,
+          },
+          576: {
+            slidesPerView: 1.5,
+            spaceBetween: 10,
+          },
+          768: {
+            slidesPerView: 1.8,
+            spaceBetween: 20,
+          },
+          1120: {
+            slidesPerView: 2.5,
+            spaceBetween: 20,
+          }
+        }}
       >
         {bannerList.map((v) => {
           return (
