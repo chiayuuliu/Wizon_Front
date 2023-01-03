@@ -47,7 +47,8 @@
     border-bottom: 3px solid var(--mainYellow);
     margin-bottom: 2rem;
   }
-  .newsCard {
+
+  .Card {
     position: relative;
     height: 290px;
     border-radius: 10px;
@@ -102,6 +103,13 @@
 
     .newsCard {
       height: 200px;
+    }
+  }
+}
+@media (max-width: 576px) {
+  .Page {
+    .title {
+      margin-bottom: 1rem;
     }
   }
 }

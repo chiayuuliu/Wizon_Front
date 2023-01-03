@@ -5,6 +5,8 @@ import { createTheme } from '@mui/material/styles';
 import Layout from './Component/Layout/Layout';
 import Home from './Pages/Home';
 import AboutPage from './Pages/AboutPage';
+import SolutionPage from "./Pages/SolutionPage";
+import SolutionDetail from "./Pages/SolutionDetail";
 
 // 顏色設定for MUI
 export const theme = createTheme({
@@ -30,6 +32,8 @@ function App() {
       <Route path="/" element={<Layout />}>
         <Route index element={<Home />} />
         <Route path="/about" element={<AboutPage />} />
+        <Route path="/solution" element={<SolutionPage />} />
+        <Route path="/solution/:solutionID" element={<SolutionDetail />} />
       </Route>
     </Routes>
   );

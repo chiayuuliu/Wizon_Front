@@ -74,11 +74,6 @@ const Home = () => {
                   />
                 )
               })}
-
-              {/* <NewsCard
-            title="測試456"
-            img='https://picsum.photos/id/70/1100/300'
-          /> */}
               <Title
                 title="更多消息"
               />

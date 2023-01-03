@@ -15,8 +15,6 @@ import { Link } from "react-router-dom";
 const drawerWidth = 240;
 const mobileNav = ['解決方案', '合作夥伴', '關於Wizon', 'English/中文'];
 // Web NavItems
-const leftItems = ['解決方案', '合作夥伴'];
-// const rightItems = ['關於Wizon', <BsFacebook className='icon' />, <FiMail className='icon' />, 'English/中文'];
 
 const rightItems = [
   {
@@ -33,6 +31,17 @@ const rightItems = [
   },
   {
     name: 'English/中文',
+    link: "",
+  }
+]
+
+const leftItems = [
+  {
+    name: "解決方案",
+    link: "/solution",
+  },
+  {
+    name: '合作夥伴',
     link: "",
   }
 ]
@@ -82,19 +91,19 @@ function Nav(props) {
                 className='itemsWrap'
                 sx={{ display: { xs: 'none', sm: 'none', md: 'flex' } }}>
                 {leftItems.map((item) => (
-                  <Button
-                    className='itemBtn'
-                    color="textBlack"
-                    key={item}>
-                    {item}
-                  </Button>
+                  <Link to={item.link} >
+                    <Button
+                      className='itemBtn'
+                      color="textBlack"
+                      key={item.name}>
+                      {item.name}
+                    </Button>
+                  </Link>
                 ))}
               </Box>
             </div>
-
             {/* nav 右邊 */}
             <Box className='itemsWrap rightItemsWrap' sx={{ display: { xs: 'none', sm: 'none', md: 'flex' } }}>
-
               {rightItems.map((item) => (
                 <Link to={item.link} >
                   <Button
