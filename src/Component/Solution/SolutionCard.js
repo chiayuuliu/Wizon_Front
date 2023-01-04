@@ -1,10 +1,14 @@
 import React from 'react'
 import Button from '@mui/material/Button';
-const SolutionCard = ({ title, img, ID }) => {
+import { useNavigate } from "react-router-dom";
 
+
+const SolutionCard = ({ title, img, ID }) => {
+  const navigate = useNavigate();
   const openInNewTab = url => {
     window.open(url, '_blank', 'noopener,noreferrer');
   };
+
   return (
     <div className='Card solutionCard'>
       <img src={img} alt='Cover' />
@@ -15,10 +19,8 @@ const SolutionCard = ({ title, img, ID }) => {
         size="medium"
         variant="outlined"
         onClick={() => {
-          // console.log(!redirect)
-          // if (redirect) {
-          //   openInNewTab(redirect)
-          // }
+          console.log(ID)
+          navigate(`/solution/${ID}`);
         }}
       >
         完整內容...

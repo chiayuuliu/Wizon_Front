@@ -7,7 +7,7 @@ import Home from './Pages/Home';
 import AboutPage from './Pages/AboutPage';
 import SolutionPage from "./Pages/SolutionPage";
 import SolutionDetail from "./Pages/SolutionDetail";
-
+import ScrollToTop from "./Component/ScrollToTop";
 // 顏色設定for MUI
 export const theme = createTheme({
   palette: {

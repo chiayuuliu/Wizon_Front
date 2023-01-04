@@ -6,7 +6,7 @@ const NewsCard = ({ title, img, redirect }) => {
     window.open(url, '_blank', 'noopener,noreferrer');
   };
   return (
-    <div className='newsCard'>
+    <div className='Card'>
       <img src={img} alt='newsCover' />
       <div className="cardTitle">{title}</div>
       <Button

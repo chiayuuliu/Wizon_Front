@@ -17,23 +17,29 @@
     }
 
     .itemsWrap {
-      .itemBtn {
-        font-size: 1.2rem;
-        margin-left: 1.5rem;
+      a {
+        text-decoration: none;
+        .itemBtn {
+          font-size: 1.2rem;
+          margin-left: 1.5rem;
+        }
       }
     }
   }
 
+  // 右邊NavItem
   .itemsWrap {
     height: 64px;
     align-items: flex-end;
+    a {
+      text-decoration: none;
+      .itemBtn {
+        // background-color: antiquewhite;
+        font-size: 1rem;
 
-    .itemBtn {
-      // background-color: antiquewhite;
-      font-size: 1rem;
-
-      .icon {
-        font-size: 1.6rem;
+        .icon {
+          font-size: 1.6rem;
+        }
       }
     }
   }
@@ -78,7 +84,6 @@ footer {
     object-fit: contain;
   }
 }
-
 
 @media (max-width: 768px) {
   footer {

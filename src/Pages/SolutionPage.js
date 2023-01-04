@@ -36,9 +36,9 @@ const SolutionPage = () => {
           {products.map((v) => {
             return (
               <SolutionCard
-                // key={v.id}
+                key={v.id}
                 title={v.name}
-                id={v.id}
+                ID={v.id}
                 img={v.file_link}
               />
             )
