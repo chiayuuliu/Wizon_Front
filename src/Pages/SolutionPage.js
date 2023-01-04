@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { Container, Box } from '@mui/material/';
 import SolutionCard from '../Component/Solution/SolutionCard';
 import api from '../api/api';
+import Slide from 'react-reveal/Slide';
 
 const SolutionPage = () => {
   const [products, setProducts] = useState([])
@@ -33,14 +34,17 @@ const SolutionPage = () => {
     <div className="Page solutionPage">
       {loading ||
         <Container>
+
           {products.map((v) => {
             return (
-              <SolutionCard
-                key={v.id}
-                title={v.name}
-                ID={v.id}
-                img={v.file_link}
-              />
+              <Slide bottom>
+                <SolutionCard
+                  key={v.id}
+                  title={v.name}
+                  ID={v.id}
+                  img={v.file_link}
+                />
+              </Slide>
             )
           })}
         </Container>

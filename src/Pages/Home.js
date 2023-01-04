@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import Fade from 'react-reveal/Fade';
 import '../Styles/Home.scss'
 import Banner from '../Component/Home/Banner'
 import { Container, Box } from '@mui/material/';
@@ -65,18 +66,17 @@ const Home = () => {
               />
               {newsList.map((v) => {
                 return (
-                  <NewsCard
-                    key={v.id}
-                    redirect={v.redirect}
-                    title={v.title}
-                    id={v.id}
-                    img='https://picsum.photos/id/60/1100/300'
-                  />
+                  <Fade bottom>
+                    <NewsCard
+                      key={v.id}
+                      redirect={v.redirect}
+                      title={v.title}
+                      id={v.id}
+                      img='https://picsum.photos/id/60/1100/300'
+                    />
+                  </Fade>
                 )
               })}
-              {/* <Title
-                title="更多消息"
-              /> */}
             </Box>
           </Container>
         </>

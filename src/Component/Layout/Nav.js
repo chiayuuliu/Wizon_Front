@@ -91,7 +91,7 @@ function Nav(props) {
                 className='itemsWrap'
                 sx={{ display: { xs: 'none', sm: 'none', md: 'flex' } }}>
                 {leftItems.map((item) => (
-                  <Link to={item.link} >
+                  <Link to={item.link} key={item.name}>
                     <Button
                       className='itemBtn'
                       color="textBlack"

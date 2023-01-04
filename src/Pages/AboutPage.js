@@ -7,9 +7,11 @@ import VedioTest from '../Component/About/Video'
 import '../Styles/About.scss'
 import Spinner from '../Component/Spinner';
 import api from '../api/api';
-
+import Slide from 'react-reveal/Slide';
 
 const AboutPage = () => {
+  // 建立loading
+  const [createLoading, setCreateLoading] = useState(false)
   // 聯絡資訊
   const [contactInfo, setContactInfo] = useState({
     company_name: "",
@@ -48,10 +50,11 @@ const AboutPage = () => {
   // URL
   const addContactURL = `/fs/contact`
 
+  // 送出建立資訊
   const handleCreateContact = async (e) => {
     e.preventDefault();
     console.log(contactInfo)
-    // setCreateLoading(true)
+    setCreateLoading(true)
     try {
       const res = await api.post(addContactURL, JSON.stringify({
         contactInfo
@@ -72,7 +75,7 @@ const AboutPage = () => {
       // ErrorMsg(errorCode, errMsg)
 
     } finally {
-      // setCreateLoading(false)
+      setCreateLoading(false)
     }
   }
 
@@ -86,52 +89,60 @@ const AboutPage = () => {
   return (
     <div className="Page aboutPage">
       <Container>
-        <Title
-          title='公司簡介'
-        />
-        <div className="introductionWrap">
-          <p className='introduction'>懷生數位（WIZON Digital Corp.) 成立2022年, 來自資安產業實務專家所組成新創公司, 以自有研發資安系統平台, 結合資安專家團隊(People), 關鍵技術(Technologies)及自動化流程(Process), 提供新世代MSSP (Managed Security Service Platform) 服務, 為企業建立睿智化,效率化的資安治理方針及專家諮詢.</p>
-          <div className="introductionImg">
-            <img src="https://picsum.photos/id/60/300/350" alt="" />
-          </div>
-        </div>
-        <Title
-          title='介紹影片'
-        />
-        {/* 影片介紹 */}
-        <VedioTest embedId="Ey_90l9GaAw" />
-        <Title
-          title='聯絡我們'
-        />
-        <div className="contactWrap">
-          <form action="" onSubmit={handleCreateContact}>
-            <div className="infoWrap">
-              {inputs.map((v) => {
-                return (
-                  <input
-                    key={v.name}
-                    required={v.required}
-                    name={v.name} type={v.type}
-                    placeholder={v.label}
-                    onChange={(e) => {
-                      onAddContact(e)
-                    }}
-                  />
-                )
-              })}
+        {/* 公司簡介 */}
+        <Slide bottom>
+          <Title
+            title='公司簡介'
+          />
+          <div className="introductionWrap">
+            <p className='introduction'>懷生數位（WIZON Digital Corp.) 成立2022年, 來自資安產業實務專家所組成新創公司, 以自有研發資安系統平台, 結合資安專家團隊(People), 關鍵技術(Technologies)及自動化流程(Process), 提供新世代MSSP (Managed Security Service Platform) 服務, 為企業建立睿智化,效率化的資安治理方針及專家諮詢.</p>
+            <div className="introductionImg">
+              <img src="https://picsum.photos/id/60/300/350" alt="" />
             </div>
-            <textarea
-              placeholder='留下訊息(your message)'
-              name="content" id="" cols="30" rows="10"
-              onChange={(e) => {
-                onAddContact(e)
-              }}>
-            </textarea>
-            <input type="submit" />
-          </form>
-        </div>
-      </Container>
+          </div>
+        </Slide>
 
+        {/* 影片介紹 */}
+        <Slide bottom>
+          <Title
+            title='介紹影片'
+          />
+          <VedioTest embedId="Ey_90l9GaAw" />
+        </Slide>
+        <Slide bottom>
+
+          <Title
+            title='聯絡我們'
+          />
+          <div className="contactWrap">
+            <form action="" onSubmit={handleCreateContact}>
+              <div className="infoWrap">
+                {inputs.map((v) => {
+                  return (
+                    <input
+                      key={v.name}
+                      required={v.required}
+                      name={v.name} type={v.type}
+                      placeholder={v.label}
+                      onChange={(e) => {
+                        onAddContact(e)
+                      }}
+                    />
+                  )
+                })}
+              </div>
+              <textarea
+                placeholder='留下訊息(your message)'
+                name="content" id="" cols="30" rows="10"
+                onChange={(e) => {
+                  onAddContact(e)
+                }}>
+              </textarea>
+              <input type="submit" value={'送出'} />
+            </form>
+          </div>
+        </Slide>
+      </Container>
     </div>
   )
 }
