@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { AppBar, Box, Divider, Drawer, IconButton, List, ListItem, ListItemButton, ListItemText, Toolbar, Typography, Button, } from '@mui/material';
+import { AppBar, Box, Divider, Drawer, IconButton, List, ListItem, ListItemButton, ListItemText, Toolbar, Button, } from '@mui/material';
 import '../../Styles/Layout.scss'
 import PropTypes from 'prop-types';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -8,14 +8,46 @@ import { ThemeProvider } from '@mui/material/styles';
 import { theme } from '../../App'
 import { BsFacebook } from 'react-icons/bs';
 import { FiMail } from 'react-icons/fi';
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 
 // 手機側邊欄寬度
 const drawerWidth = 240;
-const mobileNav = ['解決方案', '合作夥伴', '關於Wizon', 'English/中文'];
-// Web NavItems
+// const mobileNav = ['解決方案', '合作夥伴', '關於Wizon', 'English/中文'];
+const mobileNav = [
+  {
+    id: 1,
+    name: "解決方案",
+    link: "/solution",
+  },
+  {
+    id: 2,
+    name: "合作夥伴",
+    link: "/",
+  },
+  {
+    id: 3,
+    name: "關於Wizon",
+    link: "/about",
+  },
+  {
+    id: 4,
+    name: <BsFacebook className='icon' />,
+    link: "",
+  },
+  {
+    id: 5,
+    name: <FiMail className='icon' />,
+    link: "",
+  },
+  {
+    id: 6,
+    name: 'English/中文',
+    link: "",
+  }
+];
 
+// Web NavItems
 const rightItems = [
   {
     name: "關於Wizon",
@@ -34,7 +66,6 @@ const rightItems = [
     link: "",
   }
 ]
-
 const leftItems = [
   {
     name: "解決方案",
@@ -47,6 +78,7 @@ const leftItems = [
 ]
 
 function Nav(props) {
+  const navigate = useNavigate();
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
 
@@ -56,16 +88,23 @@ function Nav(props) {
 
   // 手機版側邊欄
   const drawer = (
-    <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
+    <Box
+      onClick={handleDrawerToggle}
+      sx={{ textAlign: 'center' }}>
       <Box className='mobileLogo' sx={{ my: 2, width: 240, height: 60, px: 2 }}>
         <img src="/Images/Logo.png" alt="" />
       </Box>
       <Divider />
-      <List>
+      <List className='mobileItems'>
         {mobileNav.map((item) => (
-          <ListItem key={item} disablePadding>
+          <ListItem
+            key={item.id} disablePadding
+            onClick={() => {
+              console.log(item.link)
+              navigate(item.link);
+            }}>
             <ListItemButton sx={{ textAlign: 'center' }}>
-              <ListItemText primary={item} />
+              <ListItemText primary={item.name} />
             </ListItemButton>
           </ListItem>
         ))}
@@ -130,14 +169,15 @@ function Nav(props) {
         </AppBar>
 
         {/* 手機版 */}
-        <Box component="nav">
+        <Box component="nav" className='mobileSideNav'>
           <Drawer
             container={container}
             variant="temporary"
             open={mobileOpen}
             onClose={handleDrawerToggle}
             ModalProps={{
-              keepMounted: true, // Better open performance on mobile.
+              keepMounted: true,
+              // Better open performance on mobile.
             }}
             sx={{
               display: { xs: 'block', sm: 'block', md: 'none' },

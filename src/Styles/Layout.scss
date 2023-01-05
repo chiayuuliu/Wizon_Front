@@ -81,6 +81,15 @@ footer {
     object-fit: contain;
   }
 }
+.mobileItems {
+  span {
+    display: flex;
+    justify-content: center;
+    svg {
+      font-size: 1.6rem;
+    }
+  }
+}
 
 @media (max-width: 768px) {
   footer {
