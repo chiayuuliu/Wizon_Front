@@ -5,11 +5,18 @@ import { useParams } from "react-router-dom";
 import '../Styles/Solution.scss'
 import api from '../api/api';
 import Spinner from '../Component/Spinner';
+import FAQs from '../Component/Solution/FAQs'
 
 const SolutionDetail = () => {
   const [loading, setLoading] = useState(false)
+  const [introduction, setIntroduction] = useState("")
+  const [customer, setCustomer] = useState("")
+  const [productbenefit, setProductbenefit] = useState("")
+  const [faqList, setFaqList] = useState([])
+
+
   const { solutionID } = useParams();
-  console.log(solutionID)
+  // console.log(!!'')
 
   const solutionDetailURL = `/fs/products/${solutionID}`
 
@@ -22,7 +29,11 @@ const SolutionDetail = () => {
     try {
       const res = await api.get(solutionDetailURL);
       if (res.data.status) {
-        console.log(res.data.data)
+        console.log(res.data.data.detail)
+        setIntroduction(res.data.data.detail.introduction)
+        setCustomer(res.data.data.detail.customers)
+        setProductbenefit(res.data.data.detail.benefit)
+        setFaqList(res.data.data.detail.faqs)
         // setProducts(res.data.data.response)
       }
     } catch (err) {
@@ -37,31 +48,30 @@ const SolutionDetail = () => {
       {loading && <Spinner />}
       {loading ||
         <Container>
+          <Title
+            title={'服務介紹'}
+          />
           <div className="content">
-            <Title
-              title={'服務介紹'}
-            />
-            <div className="content">
-              <p>懷生數位（WIZON Digital Corp.) 成立2022年, 來自資安產業實務專家所組成新創公司, 以自有研發資安系統平台, 結合資安專家團隊(People), 關鍵技術(Technologies)及自動化流程(Process), 提供新世代MSSP (Managed Security Service Platform) 服務, 為企業建立睿智化,效率化的資安治理方針及專家諮詢.</p>
-            </div>
+            <p>{introduction ? introduction : "loading..."}</p>
           </div>
-
+          <Title
+            title={'適用客群'}
+          />
           <div className="content">
-            <Title
-              title={'服務介紹'}
-            />
-            <div className="content">
-              <p>懷生數位（WIZON Digital Corp.) 成立2022年, 來自資安產業實務專家所組成新創公司, 以自有研發資安系統平台, 結合資安專家團隊(People), 關鍵技術(Technologies)及自動化流程(Process), 提供新世代MSSP (Managed Security Service Platform) 服務, 為企業建立睿智化,效率化的資安治理方針及專家諮詢.</p>
-            </div>
+            <p>{customer ? customer : "loading..."}</p>
           </div>
+          <Title
+            title={'服務效益'}
+          />
           <div className="content">
-            <Title
-              title={'服務介紹'}
-            />
-            <div className="content">
-              <p>懷生數位（WIZON Digital Corp.) 成立2022年, 來自資安產業實務專家所組成新創公司, 以自有研發資安系統平台, 結合資安專家團隊(People), 關鍵技術(Technologies)及自動化流程(Process), 提供新世代MSSP (Managed Security Service Platform) 服務, 為企業建立睿智化,效率化的資安治理方針及專家諮詢.</p>
-            </div>
+            <p>{productbenefit ? productbenefit : "loading..."}</p>
           </div>
+          <Title
+            title={'FAQ'}
+          />
+          <FAQs
+            faqList={faqList}
+          />
 
         </Container>
       }
