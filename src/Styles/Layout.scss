@@ -84,6 +84,7 @@ footer {
 
 @media (max-width: 768px) {
   footer {
+    padding: 1rem 0.5rem;
     .footerWrap {
       .linkItems {
         display: flex;
@@ -104,14 +105,16 @@ footer {
 @media (max-width: 576px) {
   footer {
     height: 110px;
-    padding: 0.5rem 1rem;
-    margin-top: 2rem;
+    padding: 0.5rem 0rem;
+    margin-top: 1rem;
 
     .footerWrap {
+      justify-content: center;
       .copyright {
         display: none;
       }
       .linkItems {
+        width: 100%;
         display: flex;
         justify-content: space-between;
         ul {

@@ -8,15 +8,12 @@ import Spinner from '../Component/Spinner';
 import FAQs from '../Component/Solution/FAQs'
 
 const SolutionDetail = () => {
-  const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(true)
   const [introduction, setIntroduction] = useState("")
   const [customer, setCustomer] = useState("")
   const [productbenefit, setProductbenefit] = useState("")
   const [faqList, setFaqList] = useState([])
-
-
   const { solutionID } = useParams();
-  // console.log(!!'')
 
   const solutionDetailURL = `/fs/products/${solutionID}`
 
@@ -34,7 +31,6 @@ const SolutionDetail = () => {
         setCustomer(res.data.data.detail.customers)
         setProductbenefit(res.data.data.detail.benefit)
         setFaqList(res.data.data.detail.faqs)
-        // setProducts(res.data.data.response)
       }
     } catch (err) {
       console.log(err)
@@ -72,7 +68,6 @@ const SolutionDetail = () => {
           <FAQs
             faqList={faqList}
           />
-
         </Container>
       }
     </div>

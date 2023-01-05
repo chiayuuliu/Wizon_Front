@@ -5,7 +5,7 @@ import Fade from 'react-reveal/Fade';
 
 const Footer = () => {
   return (
-    <Fade bottom>
+    // <Fade >
       <footer>
         <Container>
           <div className="footerWrap">
@@ -26,12 +26,11 @@ const Footer = () => {
                 <li>social Link</li>
                 <li>Facebook</li>
               </ul>
-
             </div>
           </div>
         </Container>
       </footer>
-    </Fade>
+    // </Fade>
 
   )
 }

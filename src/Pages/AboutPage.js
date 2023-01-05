@@ -1,17 +1,22 @@
 import React, { useState } from 'react'
-import { Container, Box, Grid, Paper, TextField } from '@mui/material/';
-import { styled } from '@mui/material/styles';
+import { Container } from '@mui/material/';
 import Swal from 'sweetalert2'
 import Title from '../Component/All/Title';
 import VedioTest from '../Component/About/Video'
 import '../Styles/About.scss'
-import Spinner from '../Component/Spinner';
 import api from '../api/api';
 import Slide from 'react-reveal/Slide';
 
 const AboutPage = () => {
-  // 建立loading
   const [createLoading, setCreateLoading] = useState(false)
+  // 聯絡資訊
+  const [emptyInput] = useState({
+    company_name: "",
+    name: "",
+    phone: "",
+    email: "",
+    content: "",
+  });
   // 聯絡資訊
   const [contactInfo, setContactInfo] = useState({
     company_name: "",
@@ -27,24 +32,28 @@ const AboutPage = () => {
       label: "公司名稱(選填)",
       type: "text",
       required: false,
+      value: contactInfo.company_name,
     },
     {
       name: "name",
       label: "姓名(Name)",
       type: "text",
       required: true,
+      value: contactInfo.name,
     },
     {
       name: "email",
       label: "郵件(Email)",
       type: "email",
       required: true,
+      value: contactInfo.email,
     },
     {
       name: "phone",
       label: "聯絡電話(Phone)",
       type: "text",
       required: true,
+      value: contactInfo.phone,
     },
   ]
   // URL
@@ -53,26 +62,28 @@ const AboutPage = () => {
   // 送出建立資訊
   const handleCreateContact = async (e) => {
     e.preventDefault();
-    console.log(contactInfo)
+    // console.log(contactInfo)
     setCreateLoading(true)
     try {
-      const res = await api.post(addContactURL, JSON.stringify({
+      const res = await api.post(addContactURL, JSON.stringify(
         contactInfo
-      }));
+      ));
       if (res.data.status) {
-        console.log(res.data)
+        // console.log(res.data)
         Swal.fire({
+          icon: "success",
           text: "新增成功",
           showConfirmButton: false,
           timer: 1000,
         })
+        // 還原
+        setContactInfo({ ...emptyInput })
       }
     } catch (err) {
-      console.log(err)
+      // console.log(err)
       const errorCode = err.response.status;
       const errMsg = err.response.data.data.error_code;
-      console.log(errorCode, errMsg);
-      // ErrorMsg(errorCode, errMsg)
+      // console.log(errorCode, errMsg);
 
     } finally {
       setCreateLoading(false)
@@ -110,7 +121,6 @@ const AboutPage = () => {
           <VedioTest embedId="Ey_90l9GaAw" />
         </Slide>
         <Slide bottom>
-
           <Title
             title='聯絡我們'
           />
@@ -124,6 +134,7 @@ const AboutPage = () => {
                       required={v.required}
                       name={v.name} type={v.type}
                       placeholder={v.label}
+                      value={v.value}
                       onChange={(e) => {
                         onAddContact(e)
                       }}
@@ -134,11 +145,16 @@ const AboutPage = () => {
               <textarea
                 placeholder='留下訊息(your message)'
                 name="content" id="" cols="30" rows="10"
+                value={contactInfo.content}
                 onChange={(e) => {
                   onAddContact(e)
                 }}>
               </textarea>
-              <input type="submit" value={'送出'} />
+              <input
+                disabled={createLoading}
+                type="submit"
+                value={createLoading ? "Loading..." : '送出'}
+              />
             </form>
           </div>
         </Slide>
