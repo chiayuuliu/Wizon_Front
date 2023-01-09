@@ -4,7 +4,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 
-import { Pagination } from "swiper";
+import { Pagination, Autoplay } from "swiper";
 
 const Banner = ({ bannerList }) => {
 
@@ -12,10 +12,14 @@ const Banner = ({ bannerList }) => {
     <div className="bannerWrap">
       <Swiper
         slidesPerView={1.8}
+        autoplay={{
+          delay: 2000,
+          disableOnInteraction: false,
+        }}
         pagination={{
           clickable: true,
         }}
-        modules={[Pagination]}
+        modules={[Autoplay, Pagination]}
         className="mySwiper"
         breakpoints={{
           0: {

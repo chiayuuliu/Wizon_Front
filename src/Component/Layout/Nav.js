@@ -103,7 +103,9 @@ function Nav(props) {
               console.log(item.link)
               navigate(item.link);
             }}>
-            <ListItemButton sx={{ textAlign: 'center' }}>
+            <ListItemButton
+              sx={{ textAlign: 'center' }}
+            >
               <ListItemText primary={item.name} />
             </ListItemButton>
           </ListItem>
