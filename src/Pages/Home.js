@@ -70,9 +70,10 @@ const Home = () => {
                     <NewsCard
                       key={v.id}
                       redirect={v.redirect}
+                      description={v.description}
                       title={v.title}
                       id={v.id}
-                      img='https://picsum.photos/id/60/1100/300'
+                      typeIcon={v.type_link}
                     />
                   </Fade>
                 )

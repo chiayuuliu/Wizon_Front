@@ -7,6 +7,7 @@ import Home from './Pages/Home';
 import AboutPage from './Pages/AboutPage';
 import SolutionPage from "./Pages/SolutionPage";
 import SolutionDetail from "./Pages/SolutionDetail";
+import NewsDetail from "./Pages/NewsDetail";
 import ScrollToTop from "./Component/ScrollToTop";
 // 顏色設定for MUI
 export const theme = createTheme({
@@ -32,6 +33,7 @@ function App() {
       <Route path="/" element={<Layout />}>
         <Route index element={<Home />} />
         <Route path="/about" element={<AboutPage />} />
+        <Route path="/news/:newsID" element={<NewsDetail />} />
         <Route path="/solution" element={<SolutionPage />} />
         <Route path="/solution/:solutionID" element={<SolutionDetail />} />
       </Route>
