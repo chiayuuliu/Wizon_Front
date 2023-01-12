@@ -1,6 +1,5 @@
 import React from 'react'
-import { Container, Box } from '@mui/material/';
-import { Link } from "react-router-dom";
+import { Container} from '@mui/material/';
 
 const Footer = () => {
   return (
