@@ -14,8 +14,17 @@
 
 .solutionPage {
   .solutionCard {
+    position: relative;
     .cardTitle {
       left: 10%;
+    }
+    p {
+      position: absolute;
+      z-index: 1300;
+      color: white;
+      left: 10px;
+      top: 80px;
+      font-weight: bold;
     }
   }
 }

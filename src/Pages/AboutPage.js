@@ -106,10 +106,19 @@ const AboutPage = () => {
             title='公司簡介'
           />
           <div className="introductionWrap">
-            <p className='introduction'>懷生數位（WIZON Digital Corp.) 成立2022年, 來自資安產業實務專家所組成新創公司, 以自有研發資安系統平台, 結合資安專家團隊(People), 關鍵技術(Technologies)及自動化流程(Process), 提供新世代MSSP (Managed Security Service Platform) 服務, 為企業建立睿智化,效率化的資安治理方針及專家諮詢.</p>
-            <div className="introductionImg">
-              <img src="https://picsum.photos/id/60/300/350" alt="" />
+            <div className='introduction'>
+              <h3>懷生數位 - WIZON DIGITAL</h3>
+              <p>
+                成立於2022年, 來自資安產業實務專家所組成新創公司, 以自有研發資安系統平台, 結合資安專家團隊(People), 關鍵技術(Technologies)及自動化流程(Process), 提供新世代MSSP (Managed Security Service Platform) 服務, 為企業建立睿智化,效率化的資安治理方針及專家諮詢.
+              </p>
+              <h3>Security in Wise -睿智化資安</h3>
+              <p>
+                教練式資安專家顧問(Coacher & Consulting)之智能化方案, 為企業提供永續營運(Sustainability)為後盾.
+              </p>
             </div>
+            {/* <div className="introductionImg">
+              <img src="https://picsum.photos/id/60/300/350" alt="" />
+            </div> */}
           </div>
         </Slide>
 

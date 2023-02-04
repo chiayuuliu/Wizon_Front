@@ -12,10 +12,10 @@ const Banner = ({ bannerList }) => {
     <div className="bannerWrap">
       <Swiper
         slidesPerView={1.8}
-        autoplay={{
-          delay: 2000,
-          disableOnInteraction: false,
-        }}
+        // autoplay={{
+        //   delay: 2000,
+        //   disableOnInteraction: false,
+        // }}
         pagination={{
           clickable: true,
         }}

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import Fade from 'react-reveal/Fade';
 import '../Styles/Home.scss'
 import Banner from '../Component/Home/Banner'
-import { Container, Box } from '@mui/material/';
+import { Container, Box, Typography } from '@mui/material/';
 import Title from '../Component/All/Title';
 import NewsCard from '../Component/Home/NewsCard';
 import api from '../api/api';
@@ -60,6 +60,19 @@ const Home = () => {
             bannerList={bannerList}
           />
           <Container>
+            <Typography variant="h5" component="h2"
+              sx={{ textAlign: 'center', lineHeight: "50px" }}>
+              Security in Wise
+            </Typography>
+            <Typography variant="h5" component="h2"
+              sx={{ textAlign: 'center', lineHeight: "50px" }}>
+              睿智化資安
+            </Typography>
+            <Typography
+              variant="subtitle1"
+              sx={{ textAlign: 'center', mt: 2, mb: 4 }}>
+              教練式資安專家顧問(Coacher & Consulting)之智能化方案, 為企業提供永續營運(Sustainability)為後盾.
+            </Typography>
             <Box sx={{ minHeight: '100vh' }}>
               <Title
                 title="最新消息"

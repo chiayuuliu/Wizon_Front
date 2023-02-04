@@ -1,5 +1,5 @@
 import React from 'react'
-import { Container} from '@mui/material/';
+import { Container } from '@mui/material/';
 
 const Footer = () => {
   return (
@@ -7,7 +7,7 @@ const Footer = () => {
       <Container>
         <div className="footerWrap">
           <p className="copyright">
-            Copyright&copy; 2022 Wizon.All right
+            &copy; 2023 WIZON DIGITAL CO., LTD. 懷生數位股份有限公司 版權所有
           </p>
           <div className="linkItems">
             <ul>

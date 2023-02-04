@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Container, Box } from '@mui/material/';
+import { Container, Box, Typography } from '@mui/material/';
 import SolutionCard from '../Component/Solution/SolutionCard';
 import api from '../api/api';
 import Slide from 'react-reveal/Slide';
@@ -34,7 +34,15 @@ const SolutionPage = () => {
     <div className="Page solutionPage">
       {loading ||
         <Container>
-
+          <Typography variant="h5" component="h2"
+            sx={{ textAlign: 'center', lineHeight: "40px" }}>
+            我們的任務是提供資安睿智化服務為目標,
+          </Typography>
+          <Typography
+            variant="subtitle1"
+            sx={{ textAlign: 'center', mb: 4 }}>
+            ”平台”為核心，作為用戶與 資安解決方案 之間的專家顧問
+          </Typography>
           {products.map((v) => {
             return (
               <Slide bottom>
@@ -42,7 +50,9 @@ const SolutionPage = () => {
                   key={v.id}
                   title={v.name}
                   ID={v.id}
-                  img={v.file_link}
+                  description={v.description}
+                  // img={v.file_link}
+                  img='https://cuhkintouch.cpr.cuhk.edu.hk/wp-content/uploads/2020/12/20201217_ICT-Awards01-scaled.jpg'
                 />
               </Slide>
             )
